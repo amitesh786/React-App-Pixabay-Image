@@ -1,0 +1,22 @@
+{
+    "name": "react-app-pixabay",
+    "email": "amitesh.jy.786@gmail.com",
+    "description": "Create a project using react to search images using pixabay",
+    "main": "index.js",
+    "scripts": {
+        "start": "node r.js -o build.js",
+        "grunt": "grunt start"
+    },
+    "version": "0.0.2",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/amitesh786/"
+    },
+    "license": "ISC",
+    "keywords": [],
+    "author": "Amitesh Singh",
+    "devDependencies": {},
+    "dependencies": {
+        "create-react-app": "^1.5.2"
+    }
+}
