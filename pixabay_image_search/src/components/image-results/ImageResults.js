@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import {GridList, GridTile} from 'material-ui/GridList';
 import IconButton from 'material-ui/IconButton';
 import ZoomIn from 'material-ui/svg-icons/action/zoom-in';
-import Dialog from 'material-ui/Dialog';
-import FlatButton from 'material-ui/FlatButton';
+// import Dialog from 'material-ui/Dialog';
+// import FlatButton from 'material-ui/FlatButton';
 
 class ImageResults extends Component {
+
     render () {
         let imageListContent;
         const {images} = this.props;
@@ -50,5 +51,4 @@ class ImageResults extends Component {
 ImageResults.propTypes = {
     images: PropTypes.array.isRequired
 }
-
 export default ImageResults;
