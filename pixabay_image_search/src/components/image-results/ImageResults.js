@@ -3,10 +3,23 @@ import PropTypes from 'prop-types';
 import {GridList, GridTile} from 'material-ui/GridList';
 import IconButton from 'material-ui/IconButton';
 import ZoomIn from 'material-ui/svg-icons/action/zoom-in';
-// import Dialog from 'material-ui/Dialog';
-// import FlatButton from 'material-ui/FlatButton';
+import Dialog from 'material-ui/Dialog';
+import FlatButton from 'material-ui/FlatButton';
 
 class ImageResults extends Component {
+
+    state = {
+        open : false,
+        currentImg: ''
+    }
+
+    handleOpen = (img) => {
+        this.setState( {open: true, currentImg: img})
+    }
+
+    handleClose = (img) => {
+        this.setState({ open: false })
+    }
 
     render () {
         let imageListContent;
@@ -15,7 +28,7 @@ class ImageResults extends Component {
         if(images) {
             imageListContent = (
                 <GridList cols={3}>
-                    {images.map(img => (
+                    { images.map(img => (
                         <GridTile
                             title={img.tags}
                             key={img.id}
@@ -25,7 +38,7 @@ class ImageResults extends Component {
                                 </span>
                             }
                             actionIcon={
-                                <IconButton>
+                                <IconButton onClick={ () => this.handleOpen(img.largeImageUrl) }>
                                     <ZoomIn color="white">
                                     </ZoomIn>
                                 </IconButton>
@@ -34,15 +47,27 @@ class ImageResults extends Component {
                         <img src={img.largeImageUrl} alt="" />
                             
                         </GridTile>
-                    ))}
+                    )) }
                 </GridList>
             )
         }else {
             imageListContent = null;
         }
+
+        const action = [
+            <FlatButton label="Close" primary={true} onClick= {this.handleClose} />
+        ]
         return (
             <div>
                 {imageListContent}
+                <Dialog
+                    action ={action}
+                    modal={false}
+                    open={this.state.open}
+                    onRequestClose={this.handleClose}
+                >
+                <img src={this.state.currentImg} alt="" style={ {width: '100%'} }/>
+                </Dialog>
             </div>
         )
     }
