@@ -22,8 +22,8 @@ class Search extends Component {
                 this.setState({images: []});
             }else {
                 axios.get(`${this.state.apiUrl}/?key=${this.state.apikey}&q=${this.state.serachText}&image_type=photo&per_page=${this.state.amount}&safesearch=true`)
-                    .then(res => this.setState({ images: res.data.hits }))
-                    .catch(err => console.log(err));
+                .then(res => this.setState({ images: res.data.hits }))
+                .catch(err => console.log(err));
             }
         });
     };
@@ -57,10 +57,9 @@ class Search extends Component {
 
                 </SelectField>
                 <br/>
-
                 {this.state.images.length > 0 ? (<ImageResults images= {this.state.images} />) : null}
             </div>
         );
-    }    
+    }
 }
 export default Search;

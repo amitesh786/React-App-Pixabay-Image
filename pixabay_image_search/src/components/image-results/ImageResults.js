@@ -24,7 +24,6 @@ class ImageResults extends Component {
     render () {
         let imageListContent;
         const {images} = this.props;
-
         if(images) {
             imageListContent = (
                 <GridList cols={3}>
@@ -57,6 +56,7 @@ class ImageResults extends Component {
         const action = [
             <FlatButton label="Close" primary={true} onClick= {this.handleClose} />
         ]
+
         return (
             <div>
                 {imageListContent}
@@ -76,4 +76,5 @@ class ImageResults extends Component {
 ImageResults.propTypes = {
     images: PropTypes.array.isRequired
 }
+
 export default ImageResults;
